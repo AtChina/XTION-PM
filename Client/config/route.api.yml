@@ -1,0 +1,8 @@
+#自定义API路由配置，httpmethod（get|delete|post|put|patch）,responetype(json|file|xml|html)
+test:                                       #0.测试接口调用
+  - httpmethod: 'post'                
+    routepath: '/api/sfa/xtionframe-web/rest/region/getAllProvinces'
+    description: '前后端接口联调测试'
+    enableroute: true
+    responetype: 'json'
+    physical_file: '/data/dictionary/getDictionaryById.json'

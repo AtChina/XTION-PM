@@ -1,0 +1,20 @@
+#自定义视图路由配置，httpmethod（get|delete|post|put|patch）,responetype(html|json|file|xml)
+test:                                                                #0.测试页面路由
+  - httpmethod: 'get'                
+    routepath: '/test|/tests|/tests/*'
+    description: '测试页面（首页）'
+    enableroute: true
+    responetype: 'html'
+    physical_file: 'tests/test.html'
+  - httpmethod: 'get'                
+    routepath: '/view/sfa/dotest'
+    description: '测试页面（首页）'
+    enableroute: true
+    responetype: 'html'
+    physical_file: 'config/test.html'
+  - httpmethod: 'get'                
+    routepath: '/view/sfa/watchtest'
+    description: '测试页面（首页）'
+    enableroute: true
+    responetype: 'html'
+    physical_file: '_demos/watchtest.html'

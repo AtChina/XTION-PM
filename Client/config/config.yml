@@ -1,0 +1,80 @@
+﻿#基础设施配置
+default:
+  runmode: 'test'                           #运行模式，包括（ development test production）
+  runcpus: '1'                              #设置node多线程数，0将启用全部CPU，输入数值对应相应的CPU数
+  favicon: 'favicon.ico'                    #favicon图标
+  homepage: 'index.html'                    #容器主页面
+  loginpage: 'login.html'                   #用户验证页面  
+  viewpath: 'views'                         #视图模板路径 
+  viewengine: 'html'                        #视图引擎 
+  apiroot: '/api/sfa'                       #接口根路由
+  confroot: '/api/com/config'               #配置引擎路由
+  localconf: false                          #是否从本地读取JSON协议
+  viewroot: '/view/sfa'                     #视图根路由
+  staticsroot: '/statics/sfa'               #静态资源根路由
+  staticpath: 
+    - path: 'app'                           #前端页面逻辑JS文件路径    
+    - path: 'bower_components'              #前端第三方JS框架文件路径
+    - path: 'components/layouts'    
+    - path: 'components/webparts/com-template'    
+    - path: 'components/webparts/ngui-template'        
+    - path: 'components/webparts/xtion-template'    
+    - path: 'components'                    #前端页面组件文件路径  
+    - path: 'data'                          #前端调用的JSON测试数据
+    - path: 'assets'                        #静态文件路径(css、imges等等)
+    - path: 'tests'                         #前端测试工程文件目录
+  requesttimeout: 3000                      #请求超时时间(单位是毫秒)
+  applist:
+    - appcode: 'SYS00000'                   #企业端配置平台系统编码
+      appname: 'PaaS配置平台'               #配置平台应用名称
+    - appcode: 'SYS00002'                   #手机端应用系统编码
+      appname: '移动终端应用'               #手机端应用名称
+  credential:
+    ca: ''                                  #客户端SSL公钥文件
+    key: ''                                 #服务器SSL私钥文件
+    cert: ''                                #服务器SSL公钥文件
+  log4js:
+    type: 'dateFile'                        #配置日志输出方式，输出方式有：console、file、dateFile
+    level: 'ALL'                            #控制日志输出级别（ALL、TRACE、DEBUG、INFO、WARN、ERROR、FATAL、MARK、OFF）
+    logpath: 'logs'                         #日志文件路径
+    logfile: 'access'                       #基本日志文件名称
+    pattern: '-yyyy-MM-dd--hh.log'          #日志文件后缀格式
+    category: 'sfa'                         #日志category分类
+#开发环境配置
+development:
+  server:
+    port: 8083                              #开发环境端口
+    host: 'localhost'                       #开发环境IP
+  gateway:
+    port: 8080                              #开发环境本地API PORT
+    host: 'localhost'                       #开发环境本地API IP
+  showerror: true                           #控制异常信息抛出
+  viewcache: false                          #控制视图缓存
+  xpoweredby: true                          #控制响应头显示程序运行环境
+  etag: false                               #控制响应头ETag设置
+  token: '00000000-0000-0000-0000-000000000001'
+#测试环境配置
+test:
+  server:
+    port: 8083                              #测试环境端口
+    host: 'localhost'                       #测试环境IP
+  gateway:
+    port: 18080                             #后端API PORT
+    host: 'localhost'                 #后端API IP
+  showerror: false                          #控制异常信息抛出
+  viewcache: false                          #控制视图缓存
+  xpoweredby: true                          #控制响应头显示程序运行环境
+  etag: false                               #控制响应头ETag设置
+  token: '00000000-0000-0000-0000-000000000001'
+#生产环境配置
+production:
+  server:
+    port: 8083                              #生产环境端口
+    host: 'localhost'                       #生产环境IP
+  gateway:
+    port: 18080                             #后端API PORT
+    host: '120.132.147.139'                 #后端API IP
+  showerror: false                          #控制异常信息抛出
+  viewcache: true                           #控制视图缓存
+  xpoweredby: false                         #控制响应头显示程序运行环境
+  etag: 'weak'                              #控制响应头ETag设置
